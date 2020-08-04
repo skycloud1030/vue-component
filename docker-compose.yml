@@ -1,0 +1,44 @@
+version: "3.7"
+x-logging: &default-logging
+  options:
+    max-size: "200k"
+    max-file: "5"
+  driver: json-file
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: vue-nginx
+    restart: always
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./www/public:/var/www/vue/public
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    logging: *default-logging
+    ports:
+      - 8080:80
+    networks:
+      - vue-component
+  nodejs:
+    image: node:12
+    container_name: vue-nodejs
+    restart: always
+    stdin_open: true
+    tty: true
+    working_dir: /work
+    volumes:
+      - ./www/src:/work/src
+      - ./www/public:/work/public
+      - ./www/package.json:/work/package.json
+      - ./www/package-lock.json:/work/package-lock.json
+      - ./www/webpack.config.js:/work/webpack.config.js
+      - ./www/.babelrc:/work/.babelrc
+    command: bash -c "npm i && npm run build && bash"
+    logging: *default-logging
+    networks:
+      - vue-component
+networks:
+  vue-component:
+    name: vue-component

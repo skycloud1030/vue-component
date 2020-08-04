@@ -1,0 +1,112 @@
+@import "~ant-design-vue/dist/antd.less";
+
+body {
+  background-color: #f0f2f5;
+}
+.ant-layout-header {
+  background-color: #fff;
+}
+.ant-layout-content {
+  padding: 24px 50px;
+  display: flex;
+  -webkit-box-orient: vertical;
+  flex-direction: column;
+}
+.ant-layout {
+  height: 100%;
+}
+
+.ant-menu-inline {
+  border-right: 0px;
+}
+
+.ant-drawer-body {
+  padding: 0px;
+  overflow-x: hidden;
+}
+
+.ant-badge-status-warning::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #faad14;
+  border-radius: 50%;
+  -webkit-animation: antStatusProcessing 1.2s infinite ease-in-out;
+  animation: antStatusProcessing 1.2s infinite ease-in-out;
+  content: "";
+}
+
+.ant-badge-status-error::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #f5222d;
+  border-radius: 50%;
+  -webkit-animation: antStatusProcessing 1.2s infinite ease-in-out;
+  animation: antStatusProcessing 1.2s infinite ease-in-out;
+  content: "";
+}
+
+.ant-drawer-content {
+  background-color: rgba(256, 256, 256, 0.85);
+}
+
+.ant-table-body {
+  overflow-x: auto !important;
+}
+
+// ::-webkit-scrollbar {
+//   width: 16px;
+//   height: 16px;
+// }
+// ::-webkit-scrollbar-button {
+//   width: 0px;
+//   height: 0px;
+// }
+// ::-webkit-scrollbar-thumb {
+//   background: rgba(0, 0, 0, 0.2);
+//   border: 2px solid #efefef;
+//   border-radius: 50px;
+// }
+// ::-webkit-scrollbar-thumb:hover {
+//   background: rgba(0, 0, 0, 0.2);
+// }
+// ::-webkit-scrollbar-thumb:active {
+//   background: rgba(0, 0, 0, 0.2);
+// }
+// ::-webkit-scrollbar-track {
+//   background: #efefef;
+//   border: 0px none #ffffff;
+//   border-radius: 50px;
+// }
+// ::-webkit-scrollbar-track:hover {
+//   background: transparent;
+// }
+// ::-webkit-scrollbar-track:active {
+//   background: transparent;
+// }
+// ::-webkit-scrollbar-corner {
+//   background: transparent;
+// }
+
+
+// @primary-color: #1890ff; // primary color for all components
+// @link-color: #1890ff; // link color
+// @success-color: #52c41a; // success state color
+// @warning-color: #faad14; // warning state color
+// @error-color: #f5222d; // error state color
+// @font-size-base: 14px; // major text font size
+// @heading-color: rgba(0, 0, 0, 0.85); // heading text color
+// @text-color: rgba(0, 0, 0, 0.65); // major text color
+// @text-color-secondary: rgba(0, 0, 0, 0.45); // secondary text color
+// @disabled-color: rgba(0, 0, 0, 0.25); // disable state color
+// @border-radius-base: 4px; // major border radius
+// @border-color-base: #d9d9d9; // major border color
+// @box-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15); // major shadow for layers
+// @menu-dark-bg: #424242;
+// @layout-sider-background: #424242;
+// @layout-trigger-background: #424242;
