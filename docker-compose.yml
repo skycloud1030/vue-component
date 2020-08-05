@@ -21,24 +21,41 @@ services:
       - 8080:80
     networks:
       - vue-component
-  nodejs:
+  typescript:
     image: node:12
-    container_name: vue-nodejs
+    build: ./nodejs
+    image: typescript/node
+    container_name: vue-typescript
     restart: always
     stdin_open: true
     tty: true
     working_dir: /work
-    volumes:
-      - ./www/src:/work/src
-      - ./www/public:/work/public
-      - ./www/package.json:/work/package.json
-      - ./www/package-lock.json:/work/package-lock.json
-      - ./www/webpack.config.js:/work/webpack.config.js
-      - ./www/.babelrc:/work/.babelrc
-    command: bash -c "npm i && npm run build && bash"
     logging: *default-logging
+    command: bash -c "npm i && npm run server"
+    volumes:
+      - ./nodejs/package.json:/work/package.json
+      - ./nodejs/src:/work/src
+      - ./nodejs/index.ts:/work/index.ts
     networks:
       - vue-component
+  # nodejs:
+  #   image: node:12
+  #   container_name: vue-nodejs
+  #   restart: always
+  #   stdin_open: true
+  #   tty: true
+  #   working_dir: /work
+  #   volumes:
+  #     - ./www/src:/work/src
+  #     - ./www/public:/work/public
+  #     - ./www/package.json:/work/package.json
+  #     - ./www/package-lock.json:/work/package-lock.json
+  #     - ./www/webpack.config.js:/work/webpack.config.js
+  #     - ./www/.babelrc:/work/.babelrc
+  #   command: bash -c "npm i && npm run build && bash"
+  #   logging: *default-logging
+  #   networks:
+  #     - vue-component
 networks:
   vue-component:
     name: vue-component

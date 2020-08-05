@@ -5,12 +5,12 @@ const headers = {
 
 export default class AuthService {
   constructor() {}
-  login = (email, password) => {
+  login = (account, password) => {
     return fetch(`/api/v1/login/`, {
       headers,
       method: "POST",
       credentials: "same-origin",
-      body: JSON.stringify({ email, password })
+      body: JSON.stringify({ account, password })
     }).then(this._checkStatus);
   };
   loggedIn() {

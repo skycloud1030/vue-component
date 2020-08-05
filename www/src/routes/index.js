@@ -1,5 +1,6 @@
 import VueRouter from "vue-router";
 import PageNotFound from "./404.vue";
+import Login from "../container/auth/login.vue"
 
 const Table = () =>
   import(/* webpackChunkName: "logs" */ "../container/table/index.vue");
@@ -11,6 +12,12 @@ const routes = [
     component: Table,
     name: "table",
     meta: { name: "table" },
+  },
+  {
+    path:"/login",
+    component: Login,
+    name: "auth",
+    meta: { name: "auth" },
   },
   {
     path: "/dashboard",

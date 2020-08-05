@@ -1,12 +1,17 @@
 <template>
   <a-layout :class="$style.layout">
-    <a-layout-sider />
-    <a-layout>
-      <a-layout-header></a-layout-header>
-      <a-layout-content>
-        <router-view />
-      </a-layout-content>
-    </a-layout>
+    <template v-if="!isAuth">
+      <a-layout-sider />
+      <a-layout>
+        <a-layout-header></a-layout-header>
+        <a-layout-content>
+          <router-view />
+        </a-layout-content>
+      </a-layout>
+    </template>
+    <template v-else>
+      <router-view />
+    </template>
   </a-layout>
 </template>
 <script>
@@ -19,6 +24,11 @@ export default {
     "a-layout-content": Layout.Content,
     "a-layout-sider": Sider,
     "a-layout-header": Layout.Header,
+  },
+  computed: {
+    isAuth: function() {
+      return this.$route.meta && this.$route.meta.name === "auth";
+    },
   },
 };
 </script>
