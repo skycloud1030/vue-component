@@ -21,8 +21,22 @@ services:
       - 8080:80
     networks:
       - vue-component
+
+  django:
+    build: ./django
+    image: python/django
+    container_name: vue-django
+    restart: always
+    tty: true
+    stdin_open: true
+    working_dir: /work
+    # command: bash -c "/utils/server-build/start.sh"
+    volumes:
+      - ./django/src:/work/django
+    logging: *default-logging
+    networks:
+      - vue-component
   typescript:
-    image: node:12
     build: ./nodejs
     image: typescript/node
     container_name: vue-typescript

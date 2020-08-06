@@ -23,4 +23,9 @@ export default {
 .header {
   text-align: right;
 }
+@media (max-width: 992px) {
+  .header:global.ant-layout-header {
+    padding: 0 24px;
+  }
+}
 </style>

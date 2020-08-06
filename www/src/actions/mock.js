@@ -53,7 +53,7 @@ fetchMock.get("/api/v1/logs", function(url) {
         ),
       };
     });
-    _.delay(() => resolve(data), 100);
+    _.delay(() => resolve({ data }), 100);
   });
 });
 

@@ -1,10 +1,14 @@
 <template>
-  <a-layout-sider style="background: #fff" breakpoint="lg">
+  <a-layout-sider :class="$style.sider" :width="150">
     <div :class="$style.logo">
       <a-icon type="code-sandbox" :class="$style.icon" />
       <h1>Vue</h1>
     </div>
-    <a-menu @click="onSelect" :selectedKeys="[selectedKeys]">
+    <a-menu
+      @click="onSelect"
+      :selectedKeys="[selectedKeys]"
+      :class="$style.menu"
+    >
       <a-menu-item key="table">
         <a-icon type="table" />
         <span>Table</span>
@@ -37,6 +41,9 @@ export default {
     defaultKey: function() {
       return this.$route.meta.name || "";
     },
+    defaultCollapsed: function() {
+      return window.innerWidth < 992;
+    },
   },
   watch: {
     defaultKey: {
@@ -46,6 +53,7 @@ export default {
       },
     },
   },
+
   methods: {
     onSelect({ key }) {
       this.selectedKeys = key;
@@ -55,6 +63,13 @@ export default {
 };
 </script>
 <style module>
+.sider:global.ant-layout-sider {
+  background: #fff;
+}
+.menu:global.ant-menu {
+  margin-right: -1px;
+}
+
 .logo {
   position: relative;
   height: 64px;
