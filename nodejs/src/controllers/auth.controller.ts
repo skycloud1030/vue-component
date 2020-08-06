@@ -1,11 +1,15 @@
 function Login(req, res) {
   const account = req.body.account;
   const password = req.body.password;
-  console.log(account, password);
-  if (account === "111" && password === "111") {
+
+  if (account === "root" && password === "root") {
     return res.send({ message: "login success" });
   }
-  return res.status(403).send({ message: "fail" });
+  return res.status(403).send({ message: "Incorrect username or password." });
 }
 
-export { Login };
+function Logout(_req, res) {
+  return res.send({ message: "Logout success" });
+}
+
+export { Login, Logout };

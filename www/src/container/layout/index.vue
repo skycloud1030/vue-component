@@ -17,13 +17,14 @@
 <script>
 import { Layout } from "ant-design-vue";
 import Sider from "./sider.vue";
+import Header from "./header.vue";
 
 export default {
   components: {
     "a-layout": Layout,
     "a-layout-content": Layout.Content,
     "a-layout-sider": Sider,
-    "a-layout-header": Layout.Header,
+    "a-layout-header": Header,
   },
   computed: {
     isAuth: function() {

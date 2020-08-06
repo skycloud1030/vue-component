@@ -2,7 +2,6 @@ import AbortController from "./abortController.js";
 import AuthService from "./authService.js";
 import router from "../routes/index.js";
 import _ from "lodash";
-import "./mock.js";
 
 export default class API {
   constructor() {

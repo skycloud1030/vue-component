@@ -34,9 +34,9 @@ const getDateRange = (key) => {
   return { startDate, endDate, count };
 };
 
-fetchMock.get("/api/v1/logs", function(params = {}) {
+fetchMock.get("/api/v1/logs", function(url) {
   return new Promise((resolve) => {
-    const { startDate, endDate, count  } = getDateRange("24h");
+    const { startDate, endDate, count } = getDateRange("24h");
 
     let data = _.times(count, () => {
       const machine = faker.random.arrayElement(machine_list);
@@ -54,5 +54,24 @@ fetchMock.get("/api/v1/logs", function(params = {}) {
       };
     });
     _.delay(() => resolve(data), 100);
+  });
+});
+
+fetchMock.post("/api/v1/login", function(url, opts) {
+  return new Promise((resolve, reject) => {
+    const { body = "{}" } = opts;
+    const { account, password } = JSON.parse(body);
+
+    if (account === "root" && password === "root") {
+      _.delay(() => resolve({ message: "Login Success" }), 100);
+    } else {
+      reject({ message: "Incorrect username or password." });
+    }
+  });
+});
+
+fetchMock.get("/api/v1/logout", function() {
+  return new Promise((resolve) => {
+    _.delay(() => resolve({ message: "Logout Success" }), 100);
   });
 });

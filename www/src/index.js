@@ -8,7 +8,7 @@ import VueVirtualScroller from "vue-virtual-scroller";
 import VueObserveVisibility from "vue-observe-visibility";
 import Fragment from "vue-fragment";
 import { Drawer, Modal } from "ant-design-vue";
-
+import "./actions/mock.js";
 import "vue-virtual-scroller/dist/vue-virtual-scroller.css";
 import "./index.less";
 

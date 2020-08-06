@@ -1,6 +1,8 @@
 import VueRouter from "vue-router";
 import PageNotFound from "./404.vue";
-import Login from "../container/auth/login.vue"
+import Login from "../container/auth/login.vue";
+import Logout from "../container/auth/logout.vue";
+import { beforeEnter } from "./private.js";
 
 const Table = () =>
   import(/* webpackChunkName: "logs" */ "../container/table/index.vue");
@@ -8,22 +10,31 @@ const Table = () =>
 const routes = [
   { path: "/", redirect: { name: "table" } },
   {
+    path: "/login",
+    component: Login,
+    name: "login",
+    meta: { name: "auth" },
+  },
+  {
+    path: "/logout",
+    component: Logout,
+    name: "logout",
+    meta: { name: "auth" },
+  },
+  {
     path: "/table",
     component: Table,
     name: "table",
     meta: { name: "table" },
+    beforeEnter,
   },
-  {
-    path:"/login",
-    component: Login,
-    name: "auth",
-    meta: { name: "auth" },
-  },
+
   {
     path: "/dashboard",
     component: PageNotFound,
     name: "dashboard",
     meta: { name: "dashboard" },
+    beforeEnter,
   },
   { path: "*", component: PageNotFound },
 ];

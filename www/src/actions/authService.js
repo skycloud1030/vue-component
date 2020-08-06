@@ -6,7 +6,7 @@ const headers = {
 export default class AuthService {
   constructor() {}
   login = (account, password) => {
-    return fetch(`/api/v1/login/`, {
+    return fetch(`/api/v1/login`, {
       headers,
       method: "POST",
       credentials: "same-origin",
@@ -14,7 +14,7 @@ export default class AuthService {
     }).then(this._checkStatus);
   };
   loggedIn() {
-    return fetch(`/api/v1/loginCheck/`, {
+    return fetch(`/api/v1/loginCheck`, {
       method: "Get",
       credentials: "same-origin"
     }).then(res => {
@@ -22,7 +22,7 @@ export default class AuthService {
     });
   }
   logout() {
-    fetch(`/api/v1/logout/`, {
+    fetch(`/api/v1/logout`, {
       method: "Get",
       credentials: "same-origin"
     });
