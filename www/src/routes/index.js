@@ -8,7 +8,12 @@ const Table = () =>
   import(/* webpackChunkName: "table" */ "../container/table/index.vue");
 
 const Dasboard = () =>
-  import(/* webpackChunkName: "dashboard" */ "../container/dashboard/index.vue");
+  import(
+    /* webpackChunkName: "dashboard" */ "../container/dashboard/index.vue"
+  );
+
+const Threejs = () =>
+  import(/* webpackChunkName: "threejs" */ "../container/threejs/index.vue");
 
 const routes = [
   { path: "/", redirect: { name: "table" } },
@@ -31,7 +36,13 @@ const routes = [
     meta: { name: "table" },
     beforeEnter,
   },
-
+  {
+    path: "/threejs",
+    component: Threejs,
+    name: "threejs",
+    meta: { name: "threejs" },
+    beforeEnter,
+  },
   {
     path: "/dashboard",
     component: Dasboard,

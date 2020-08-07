@@ -131,7 +131,7 @@ export default {
 </script>
 <style module>
 .dashboard {
-  padding: 32px;
+  /* padding: 32px; */
 }
 .dashboard .col {
   margin-bottom: 32px;

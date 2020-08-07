@@ -17,6 +17,10 @@
         <a-icon type="dashboard" />
         <span>Dasboard</span>
       </a-menu-item>
+      <a-menu-item key="threejs">
+        <a-icon type="code" />
+        <span>Threejs</span>
+      </a-menu-item>
     </a-menu>
   </a-layout-sider>
 </template>
@@ -40,9 +44,6 @@ export default {
   computed: {
     defaultKey: function() {
       return this.$route.meta.name || "";
-    },
-    defaultCollapsed: function() {
-      return window.innerWidth < 992;
     },
   },
   watch: {
