@@ -31,7 +31,7 @@ var config = {
     index: [path.resolve(__dirname, "src/index.js")],
   },
   output: {
-    publicPath: "/",
+    publicPath: "./",
     path: path.resolve(__dirname, "public"),
     chunkFilename: "[name].[contenthash].bundle.js",
     filename: "[name].[contenthash].js",
