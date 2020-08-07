@@ -12,3 +12,8 @@ http://localhsot:8080/
 ```sh
 docker-compose up -d
 ```
+
+
+## fetch-mock
+- can using fetch-mock to hijack API.
+- or using nginx with nodejs API. 

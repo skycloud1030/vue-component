@@ -22,20 +22,20 @@ services:
     networks:
       - vue-component
 
-  django:
-    build: ./django
-    image: python/django
-    container_name: vue-django
-    restart: always
-    tty: true
-    stdin_open: true
-    working_dir: /work
-    # command: bash -c "/utils/server-build/start.sh"
-    volumes:
-      - ./django/src:/work/django
-    logging: *default-logging
-    networks:
-      - vue-component
+  # django:
+  #   build: ./django
+  #   image: python/django
+  #   container_name: vue-django
+  #   restart: always
+  #   tty: true
+  #   stdin_open: true
+  #   working_dir: /work
+  #   # command: bash -c "/utils/server-build/start.sh"
+  #   volumes:
+  #     - ./django/src:/work/django
+  #   logging: *default-logging
+  #   networks:
+  #     - vue-component
   typescript:
     build: ./nodejs
     image: typescript/node
@@ -52,24 +52,24 @@ services:
       - ./nodejs/index.ts:/work/index.ts
     networks:
       - vue-component
-  # nodejs:
-  #   image: node:12
-  #   container_name: vue-nodejs
-  #   restart: always
-  #   stdin_open: true
-  #   tty: true
-  #   working_dir: /work
-  #   volumes:
-  #     - ./www/src:/work/src
-  #     - ./www/public:/work/public
-  #     - ./www/package.json:/work/package.json
-  #     - ./www/package-lock.json:/work/package-lock.json
-  #     - ./www/webpack.config.js:/work/webpack.config.js
-  #     - ./www/.babelrc:/work/.babelrc
-  #   command: bash -c "npm i && npm run build && bash"
-  #   logging: *default-logging
-  #   networks:
-  #     - vue-component
+  nodejs:
+    image: node:12
+    container_name: vue-nodejs
+    restart: always
+    stdin_open: true
+    tty: true
+    working_dir: /work
+    volumes:
+      - ./www/src:/work/src
+      - ./www/public:/work/public
+      - ./www/package.json:/work/package.json
+      - ./www/package-lock.json:/work/package-lock.json
+      - ./www/webpack.config.js:/work/webpack.config.js
+      - ./www/.babelrc:/work/.babelrc
+    command: bash -c "npm i && npm run build && bash"
+    logging: *default-logging
+    networks:
+      - vue-component
 networks:
   vue-component:
     name: vue-component
