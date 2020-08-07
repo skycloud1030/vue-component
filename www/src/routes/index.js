@@ -5,7 +5,10 @@ import Logout from "../container/auth/logout.vue";
 import { beforeEnter } from "./private.js";
 
 const Table = () =>
-  import(/* webpackChunkName: "logs" */ "../container/table/index.vue");
+  import(/* webpackChunkName: "table" */ "../container/table/index.vue");
+
+const Dasboard = () =>
+  import(/* webpackChunkName: "dashboard" */ "../container/dashboard/index.vue");
 
 const routes = [
   { path: "/", redirect: { name: "table" } },
@@ -31,7 +34,7 @@ const routes = [
 
   {
     path: "/dashboard",
-    component: PageNotFound,
+    component: Dasboard,
     name: "dashboard",
     meta: { name: "dashboard" },
     beforeEnter,
