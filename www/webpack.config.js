@@ -139,7 +139,14 @@ var config = {
       },
       {
         test: /\.(png|jpg|gif)$/,
-        loader: "url-loader?name=[path][name].[ext]&limit=50000",
+        use: {
+          loader: "url-loader",
+          options: {
+            limit: 1024, //bytes
+            outputPath: "assets",
+            esModule: false,
+          },
+        },
       },
       {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
