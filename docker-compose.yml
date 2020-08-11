@@ -67,7 +67,7 @@ services:
       - ./www/package-lock.json:/work/package-lock.json
       - ./www/webpack.config.js:/work/webpack.config.js
       - ./www/.babelrc:/work/.babelrc
-    command: bash -c "npm i && npm run build && bash"
+    command: bash -c "npm run build && bash"
     logging: *default-logging
     networks:
       - vue-component
