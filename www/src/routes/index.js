@@ -15,6 +15,9 @@ const Dasboard = () =>
 const Threejs = () =>
   import(/* webpackChunkName: "threejs" */ "../container/threejs/index.vue");
 
+const Webgl = () =>
+  import(/* webpackChunkName: "webgl" */ "../container/webgl/index.vue");
+
 const routes = [
   { path: "/", redirect: { name: "table" } },
   {
@@ -41,6 +44,13 @@ const routes = [
     component: Threejs,
     name: "threejs",
     meta: { name: "threejs" },
+    beforeEnter,
+  },
+  {
+    path: "/webgl",
+    component: Webgl,
+    name: "webgl",
+    meta: { name: "webgl" },
     beforeEnter,
   },
   {

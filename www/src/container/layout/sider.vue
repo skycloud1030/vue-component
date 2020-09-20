@@ -21,6 +21,10 @@
         <a-icon type="code" />
         <span>Threejs</span>
       </a-menu-item>
+      <a-menu-item key="webgl">
+        <a-icon type="code-sandbox" />
+        <span>Webgl</span>
+      </a-menu-item>
     </a-menu>
   </a-layout-sider>
 </template>
@@ -42,7 +46,7 @@ export default {
     "a-icon": Icon,
   },
   computed: {
-    defaultKey: function() {
+    defaultKey: function () {
       return this.$route.meta.name || "";
     },
   },
